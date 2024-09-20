@@ -6,6 +6,55 @@
 </head>
 <body>
 这里是配料表
-<div th:text="${ingredient}"></div>
+<div class="grid">
+    <div class="ingredient-group" id="wrap">
+        <h3>Designate your wrap:</h3>
+        <!--        从map中取值时不要用[]方式，否则无法推导类型-->
+        <!--        如果需要th:with请在单独的父标签中使用-->
+        <div th:each="ingredient : ${ingredientMap.get('WRAP')}">
+            <label>
+                <input type="checkbox">
+                <span th:text="${ingredient.name}">ingredient</span>
+            </label>
+        </div>
+    </div>
+    <div class="ingredient-group" id="protein">
+        <h3>Designate your protein:</h3>
+        <div th:each="ingredient : ${ingredientMap.get('PROTEIN')}">
+            <label>
+                <input type="checkbox">
+                <span th:text="${ingredient.name}">ingredient</span>
+            </label>
+        </div>
+    </div>
+    <div class="ingredient-group" id="veggies">
+        <h3>Designate your veggies:</h3>
+        <div th:each="ingredient : ${ingredientMap.get('VEGGIES')}">
+            <label>
+                <input type="checkbox">
+                <span th:text="${ingredient.name}">ingredient</span>
+            </label>
+        </div>
+    </div>
+    <div class="ingredient-group" id="cheese">
+        <h3>Designate your cheese:</h3>
+        <div th:each="ingredient : ${ingredientMap.get('CHEESE')}">
+            <label>
+                <input type="checkbox">
+                <span th:text="${ingredient.name}">ingredient</span>
+            </label>
+        </div>
+    </div>
+    <div class="ingredient-group" id="sauce">
+        <h3>Designate your sauce:</h3>
+        <div th:each="ingredient : ${ingredientMap.get('SAUCE')}">
+            <label>
+                <input type="checkbox">
+                <span th:text="${ingredient.name}">ingredient</span>
+            </label>
+        </div>
+    </div>
+
+</div>
 </body>
 </html>
